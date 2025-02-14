@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Paradiso Hotel</title>
   </head>
   <body>
@@ -30,20 +36,20 @@
       </div>
     </header>
 
-    <section>
-      <div>
+    <section id="section-form">
+      <div class="reservation-action">
         <h2>Hotel & Resort</h2>
         <h1>Your Sanctuary For Comfort & Elegance</h1>
         <h3>
           Paradiso is a world-class hotel and resort destination, offering a
           serene and luxurious getaway for travelers.
         </h3>
-        <input type="button" value="Make A Reservation" />
+        <input type="button" value="Make A Reservation" class="button" />
 
         <h2>Follow us <span></span><span></span><span></span></h2>
       </div>
 
-      <form>
+      <form class="form">
         <label for="">Full Name</label>
         <input type="text" placeholder="Your Name" required />
 
@@ -56,7 +62,7 @@
         <label for="">Guests</label>
         <input type="text" placeholder="Number of Guests" required />
 
-        <input type="submit" value="Check Availability" />
+        <input type="submit" value="Check Availability" class="button" />
       </form>
     </section>
 

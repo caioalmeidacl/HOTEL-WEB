@@ -9,13 +9,17 @@
     box-sizing: border-box;
 }
 
-/* Header */
+/* Body */
+body {
+    padding: .2rem .5rem;
+    font-family: Roboto, sans-serif;
+}
 
+/* Header */
 header {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: .2rem .5rem;
 }
 
 header div h1 {
@@ -60,14 +64,15 @@ header .inputs {
 
 .button {
     padding: .6rem;
-    width: 6.5rem;
+    min-width: 6.5rem;
+    max-width: fit-content; 
     background-color: var(--default-orange);
     color: #FFF;
     font-weight: bold;
     border: none;
     cursor: pointer;
     font-size: 1rem;
-    outline: auto var(--default-orange);
+    outline: 1px solid var(--default-orange);
 }
 
 
@@ -78,7 +83,7 @@ header .inputs {
 .button.white {
     color: var(--list-color);
     background-color: #FFF;
-    outline: auto var(--list-color);
+    outline: 1px solid var(--list-color);
     font-weight: bold;
 }
 
@@ -95,4 +100,62 @@ header .inputs {
 
 /* Inputs */
 
+/* Section Form */
 
+#section-form {
+    position: relative;
+    display: flex;
+    background-image: url("../images/woman-pool.jpg");
+    background-size: cover;
+    background-position: bottom center ;
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 40rem;
+}
+
+#section-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.reservation-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+    z-index: 1;
+    padding: 0 2rem;
+    align-items: start;
+}
+
+.reservation-action h1 {
+    color: white;
+    font-size: 4rem;
+    width: 30rem;
+    font-weight: 300;
+}
+
+.reservation-action h2 {
+    color: white;
+    font-size: .9rem;
+    font-weight: semibold;
+    text-transform: uppercase;
+}
+
+.reservation-action h3 {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 26rem;
+    text-align: start;
+    font-weight: 400;
+}
+
+.form {
+    z-index: 1;
+}
