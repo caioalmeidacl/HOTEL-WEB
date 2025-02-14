@@ -3,7 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles/index.css" />
+    <title>Paradiso Hotel</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Paradiso</h1>
+
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Room</li>
+          <li>Pages</li>
+          <li>Blog</li>
+          <li>System</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+
+      <div>
+        <input type="button" value="Login" />
+        <input type="button" value="Register" />
+      </div>
+    </header>
+
+    <section>
+      <div>
+        <h2>Hotel & Resort</h2>
+        <h1>Your Sanctuary For Comfort & Elegance</h1>
+        <h3>
+          Paradiso is a world-class hotel and resort destination, offering a
+          serene and luxurious getaway for travelers.
+        </h3>
+        <input type="button" value="Make A Reservation" />
+
+        <h2>Follow us <span></span><span></span><span></span></h2>
+      </div>
+
+      <form>
+        <label for="">Full Name</label>
+        <input type="text" placeholder="Your Name" required />
+
+        <label for="">Check In</label>
+        <input type="text" placeholder="Your Arrival" required />
+
+        <label for="">Check Out</label>
+        <input type="text" placeholder="Your Departure" required />
+
+        <label for="">Guests</label>
+        <input type="text" placeholder="Number of Guests" required />
+
+        <input type="submit" value="Check Availability" />
+      </form>
+    </section>
+
+    <main>
+      <h2>About Paradiso</h2>
+      <h1>A World-Class Hotel And Resort Destination.</h1>
+      <p>
+        Our journey began with a vision to create a resort that embraces the
+        natural beauty of each destination while delivering unparalleled luxury
+        and service
+      </p>
+
+      <input type="button" value="Read More" />
+
+      <section class="images"></section>
+    </main>
+
+    <section>
+      <h2>Our Rooms</h2>
+      <div>
+        <h1>Available Rooms</h1>
+        <input type="button" value="View All Rooms" />
+      </div>
+      <div id="rooms"></div>
+    </section>
+  </body>
 </html>
