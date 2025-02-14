@@ -1,0 +1,98 @@
+:root {
+    --default-orange: #f15c2d;
+    --list-color: #626c79;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: .2rem .5rem;
+}
+
+header div h1 {
+    font-size: 2.5rem;
+    color: var(--default-orange);
+}
+
+header nav {
+    margin-left: 1rem;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    cursor: pointer;
+    margin-inline: .8rem;
+    color: var(--list-color);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.more-info::after {
+    content: "▼";
+    font-size: 0.8rem;
+    color: var(--default-orange);
+    max-width: fit-content;
+}
+
+header nav ul li:hover {
+    color: var(--default-orange);
+}
+
+header .inputs {
+    margin-left: auto;
+}
+
+/* Buttons */
+
+.button {
+    padding: .6rem;
+    width: 6.5rem;
+    background-color: var(--default-orange);
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    outline: auto var(--default-orange);
+}
+
+
+.button + .button {
+    margin-left: .3rem;
+}
+
+.button.white {
+    color: var(--list-color);
+    background-color: #FFF;
+    outline: auto var(--list-color);
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: var(--list-color); 
+    color: #FFF;
+    outline: none;
+} 
+
+.button.white:hover {
+    background-color: var(--default-orange); 
+    color: #FFF;
+}
+
+/* Inputs */
+
+
