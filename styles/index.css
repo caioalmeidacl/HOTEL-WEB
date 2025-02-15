@@ -213,8 +213,8 @@ main {
     align-items: center;
     width: 37rem;
     max-width: fit-content;
-    justify-content: space-around;
-    min-height: 22rem;
+    justify-content: space-evenly;
+    min-height: 19rem;
     margin: auto;
 }
 
@@ -228,7 +228,7 @@ main h1 {
 main h2 {
     color: var(--default-orange);
     font-size: .7rem;
-    font-weight: semibold;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
@@ -237,4 +237,21 @@ main p {
     font-weight: 400;
     color: var(--paragraph);
     text-align: center;
+}
+
+/* Section Images */
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.image {
+    max-width: 20rem;
+    max-height: 35rem;
+}
+
+.image.down {
+    margin-top: 4rem;
 }
