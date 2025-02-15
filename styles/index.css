@@ -1,3 +1,4 @@
+/* Default Styles */
 :root {
     --default-orange: #f15c2d;
     --list-color: #626c79;
@@ -16,6 +17,7 @@
 body {
     padding: .2rem .5rem;
     font-family: Roboto, sans-serif;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -23,6 +25,7 @@ header {
     display: flex;
     align-items: center;
     width: 100%;
+    padding: 0.5rem;
 }
 
 header div h1 {
@@ -64,7 +67,6 @@ header .buttons {
 }
 
 /* Buttons */
-
 .button {
     padding: .6rem;
     min-width: 6.5rem;
@@ -120,13 +122,12 @@ header .buttons {
 }
 
 /* Section Form */
-
 #section-form {
     position: relative;
     display: flex;
     background-image: url("../images/woman-pool.jpg");
     background-size: cover;
-    background-position: bottom center ;
+    background-position: bottom center;
     background-repeat: no-repeat;
     height: auto;
     min-height: 40rem;
@@ -190,7 +191,6 @@ header .buttons {
 }
 
 /* Form */
-
 .form {
     display: flex;
     flex-direction: column;
@@ -208,7 +208,6 @@ header .buttons {
 }
 
 /* Main */
-
 main {
     display: flex;
     flex-direction: column;
@@ -247,6 +246,7 @@ main p {
     align-items: center;
     justify-content: center;
     gap: 2.5rem;
+    padding: 0 1rem;
 }
 
 .image {
@@ -259,7 +259,6 @@ main p {
 }
 
 /* Section Rooms */
-
 #available-rooms {
     background-color: var(--background-room);
     padding: 4rem 2rem;
@@ -310,6 +309,7 @@ main p {
     min-width: 32rem;
     max-height: 20rem;
     max-width: 32rem;
+    width: 100%;
 }
 
 .picture .category {
@@ -375,4 +375,187 @@ main p {
 
 .room-measures .button {
     margin-left: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    header nav ul li {
+        margin-inline: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .reservation-action h1 {
+        font-size: 3rem;
+    }
+
+    .images {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .image {
+        margin-top: 0 !important;
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .media-icons img {
+        height: 2rem;
+        padding: 0.3rem;
+    }
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    header nav {
+        order: 3;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    header nav ul {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .reservation-action {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .reservation-action h1 {
+        font-size: 2.5rem;
+        width: 100%;
+    }
+
+    .form {
+        min-width: 50%;
+        margin: 2rem auto;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    #rooms {
+        max-width: 80%;
+    }
+
+    #section-form {
+        flex-direction: column;
+        background-position: 65% center;
+    }
+
+    .image, .image.down {
+        margin-top: 0 !important;
+        max-width: 100%;
+    }
+
+    .hidden-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .media-icons img {
+        height: 1.8rem;
+        padding: 0.2rem;
+        margin-inline: 0.2rem;
+    }
+    .media-icons {
+        justify-content: center;
+        width: 100%;
+    }
+    header div h1 {
+        font-size: 2rem;
+    }
+
+    header nav ul li {
+        font-size: 0.8rem;
+        margin-inline: 0.3rem;
+    }
+
+    .buttons {
+        margin-left: 0 !important;
+        display: none;
+    }
+
+    .button {
+        min-width: 5rem;
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    #section-form {
+        min-height: auto;
+    }
+
+    .reservation-action {
+        padding: 1rem !important;
+    }
+
+    .reservation-action h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .reservation-action h3 {
+        font-size: 1rem;
+    }
+
+    .form {
+        width: 95% !important;
+        margin: 1rem auto !important;
+    }
+
+    main h1 {
+        font-size: 2rem;
+    }
+
+    .image {
+        margin: 1rem 0;
+    }
+
+    #available-rooms {
+        padding: 2rem 1rem;
+    }
+
+    .title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .title .button {
+        margin: 1rem 0 0 0;
+    }
+
+    #rooms {
+        max-width: 100% !important;
+    }
+
+    .room-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .room-info h2 {
+        margin: 1rem 0 0 0;
+        font-size: 1.5rem !important;
+    }
+
+    .room-measures {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .room-measures .button {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+img {
+    height: auto;
 }
