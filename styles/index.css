@@ -1,6 +1,7 @@
 :root {
     --default-orange: #f15c2d;
     --list-color: #626c79;
+    --paragraph: #87909a;
 }
 
 * {
@@ -202,4 +203,38 @@ header .buttons {
     color: white;
     font-size: .9rem;
     font-weight: bold;
+}
+
+/* Main */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 37rem;
+    max-width: fit-content;
+    justify-content: space-around;
+    min-height: 22rem;
+    margin: auto;
+}
+
+main h1 {
+    font-size: 3rem;
+    max-width: 32rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+main h2 {
+    color: var(--default-orange);
+    font-size: .7rem;
+    font-weight: semibold;
+    text-transform: uppercase;
+}
+
+main p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--paragraph);
+    text-align: center;
 }
