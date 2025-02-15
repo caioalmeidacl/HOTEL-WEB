@@ -30,7 +30,7 @@
         </ul>
       </nav>
 
-      <div class="inputs">
+      <div class="buttons">
         <input type="button" value="Login" class="button white" />
         <input type="button" value="Register" class="button" />
       </div>
@@ -44,7 +44,9 @@
           Paradiso is a world-class hotel and resort destination, offering a
           serene and luxurious getaway for travelers.
         </h3>
+
         <input type="button" value="Make A Reservation" class="button" />
+
         <div class="media-icons">
           <h2>Follow us</h2>
           <img src="../images/facebook-icon.svg" />
@@ -55,18 +57,28 @@
 
       <form class="form">
         <label for="">Full Name</label>
-        <input type="text" placeholder="Your Name" required />
+        <input type="text" placeholder="Your Name" class="inputs" required />
 
         <label for="">Check In</label>
-        <input type="text" placeholder="Your Arrival" required />
+        <input type="text" placeholder="Your Arrival" class="inputs" required />
 
         <label for="">Check Out</label>
-        <input type="text" placeholder="Your Departure" required />
+        <input
+          type="text"
+          placeholder="Your Departure"
+          class="inputs"
+          required
+        />
 
         <label for="">Guests</label>
-        <input type="text" placeholder="Number of Guests" required />
+        <input
+          type="text"
+          placeholder="Number of Guests"
+          class="inputs"
+          required
+        />
 
-        <input type="submit" value="Check Availability" class="button" />
+        <input type="submit" value="Check Availability" class="button bform" />
       </form>
     </section>
 
