@@ -288,8 +288,17 @@ main p {
 
 /* Rooms */
 #rooms {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.room {
     width: fit-content;
     max-width: 50%;
+    margin: 0 0 2rem 0;
 }
 
 .picture {
@@ -298,6 +307,8 @@ main p {
 }
 
 .picture img {
+    min-width: 32rem;
+    max-height: 20rem;
     max-width: 32rem;
 }
 
