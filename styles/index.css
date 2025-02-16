@@ -58,12 +58,12 @@ header nav {
     margin-left: 1rem;
 }
 
-header nav ul {
+ul {
     display: flex;
     list-style: none;
 }
 
-header nav ul li {
+ul li {
     cursor: pointer;
     margin-inline: .8rem;
     color: var(--list-color);
@@ -80,7 +80,7 @@ header nav ul li {
     max-width: fit-content;
 }
 
-header nav ul li:hover {
+ul li:hover {
     color: var(--default-orange);
 }
 
@@ -218,6 +218,22 @@ a {
     font-size: .9rem;
 }
 
+.isLogged {
+    display: none;
+    position: relative;
+}
+
+.isLogged .dropdown {
+    min-width: 3rem;
+    width: 6.5rem;
+}
+.isLogged .dropdown li {
+    font-size: .7rem;
+}
+
+.isLogged:hover .dropdown {
+   display: block;
+}
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
