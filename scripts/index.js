@@ -14,6 +14,7 @@ import {
 //   password: "123",
 //   role: "Admin",
 // });
+
 function handlePopup(e) {
   const popup = document.querySelector(".popup");
   const email = document.querySelector("input[type=email]");
@@ -75,6 +76,11 @@ function login(user) {
   setRole(user.role);
 }
 
+function logout() {
+  removeUser();
+  location.reload();
+}
+
 function isLogged() {
   if (getUser() && getRole()) {
     document.querySelector(".isNotLogged").style.display = "none";
@@ -88,9 +94,11 @@ function isLogged() {
   return false;
 }
 
-function logout() {
-  removeUser();
-  location.reload();
+function addHeaderEvents() {
+  document.querySelectorAll(".sign-button").forEach((button) => {
+    button.addEventListener("click", (e) => handlePopup(e));
+  });
+  document.querySelector(".logout").addEventListener("click", () => logout());
 }
 
 function adminInterface() {
@@ -101,13 +109,18 @@ function adminInterface() {
   }
 }
 
-document.querySelectorAll(".sign-button").forEach((button) => {
-  button.addEventListener("click", (e) => handlePopup(e));
-});
-
-document.querySelector(".logout").addEventListener("click", () => logout());
+function loadContent(id, file) {
+  fetch(file)
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById(id).innerHTML = data;
+      addHeaderEvents();
+      adminInterface();
+      isLogged();
+    })
+    .catch((error) => console.error(`Erro ao carregar ${file}:`, error));
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  adminInterface();
-  isLogged();
+  loadContent("header", "../header.html");
 });

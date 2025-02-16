@@ -1,0 +1,81 @@
+<section class="popup">
+  <div class="sign">
+    <div class="exit">Exit</div>
+    <h1>Register</h1>
+    <form>
+      <label for="name">Name</label>
+      <input
+        type="text"
+        placeholder="Your Name"
+        id="name"
+        class="inputs"
+        required
+      />
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        placeholder="Your email"
+        name="email"
+        class="inputs"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="Your Password"
+        id="password"
+        class="inputs"
+        required
+      />
+
+      <input type="submit" value="Submit" class="button bform" />
+    </form>
+  </div>
+</section>
+
+<header>
+  <div>
+    <h1>Paradiso</h1>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="pages/facilities.html">About Us</a></li>
+      <li class="more-info">
+        Room
+        <ul class="dropdown">
+          <li>
+            <a href="pages/available-rooms-client.html?category=Luxury Room"
+              >Luxury Rooms</a
+            >
+          </li>
+          <li>
+            <a href="pages/available-rooms-client.html?category=Regular Room"
+              >Regular Rooms</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="more-info">Pages</li>
+      <li class="more-info">Blog</li>
+      <li class="more-info admin">System</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+
+  <div class="buttons">
+    <div class="isNotLogged">
+      <input type="button" value="Login" class="button white sign-button" />
+      <input type="button" value="Register" class="button sign-button" />
+    </div>
+    <div class="isLogged">
+      <input type="button" class="button" />
+      <ul class="dropdown">
+        <li class="logout">Log Out</li>
+      </ul>
+    </div>
+  </div>
+</header>
