@@ -2,7 +2,7 @@
   "rooms": [
     {
       "category": "Luxury Room",
-      "image": "images/rooms/room1.jpg",
+      "image": "../images/rooms/room1.jpg",
       "name": "Oceanview Resort",
       "isAvailable": true,
       "price": 1500,
@@ -17,7 +17,7 @@
     },
     {
       "category": "Reguler Room",
-      "image": "images/rooms/room2.jpg",
+      "image": "../images/rooms/room2.jpg",
       "name": "Classic Room",
       "isAvailable": true,
       "price": 740,
@@ -32,7 +32,7 @@
     },
     {
       "category": "Reguler Room",
-      "image": "images/rooms/room3.jpg",
+      "image": "../images/rooms/room3.jpg",
       "name": "Deluxe Suite",
       "isAvailable": true,
       "price": 350,
@@ -47,7 +47,7 @@
     },
     {
       "category": "Reguler Room",
-      "image": "images/rooms/room4.jpg",
+      "image": "../images/rooms/room4.jpg",
       "name": "Business Suite",
       "isAvailable": true,
       "price": 1250,
@@ -62,9 +62,9 @@
     }
   ],
   "icons": {
-    "size": "images/sqft-icon.png",
-    "capacity": "images/people-icon.png",
-    "beds": "images/bed-icon.png",
-    "bathrooms": "images/toilet-icon.png"
+    "size": "../images/sqft-icon.png",
+    "capacity": "../images/people-icon.png",
+    "beds": "../images/bed-icon.png",
+    "bathrooms": "../images/toilet-icon.png"
   }
 }

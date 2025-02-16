@@ -1,0 +1,61 @@
+main {
+    display: flex;
+    margin-top: 10rem;
+    align-items: center;
+    max-width: fit-content;
+    margin: 10rem auto 0;
+    padding: 2rem 3rem;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 20rem;
+    margin-right: 1rem;
+}
+
+#about h1 {
+    font-weight: 400;
+}
+
+#about h2 {
+    font-size: .8rem;
+}
+
+#about p {
+    max-width: 60%;
+}
+
+.facilities {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 41rem; 
+    align-items: start;
+    justify-content: space-between;
+}
+
+.facilities h3 {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.facility {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-room);
+    padding: 1.5rem 1rem;
+    max-width: 20rem;
+    min-height: 12rem;
+    margin: 0 0 1rem 0;
+}
+
+.facility p {
+    padding-right: 2rem;
+}
+
+.facility img {
+    max-width: 3.5rem;
+}

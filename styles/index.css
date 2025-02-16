@@ -1,4 +1,3 @@
-/* Default Styles */
 :root {
     --default-orange: #f15c2d;
     --list-color: #626c79;
@@ -13,14 +12,37 @@
     box-sizing: border-box;
 }
 
-/* Body */
 body {
     padding: .2rem .5rem;
     font-family: Roboto, sans-serif;
     overflow-x: hidden;
 }
 
-/* Header */
+h1 {
+    font-size: 3rem;
+    max-width: 32rem;
+    font-weight: 300;
+}
+
+h2 {
+    color: var(--default-orange);
+    font-size: .7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--paragraph);
+}
+
+h3 {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 26rem;
+    font-weight: 400;
+}
 header {
     display: flex;
     align-items: center;
@@ -28,9 +50,10 @@ header {
     padding: 0.5rem;
 }
 
-header div h1 {
+header div > h1 {
     font-size: 2.5rem;
     color: var(--default-orange);
+    font-weight: bold;
 }
 
 header nav {
@@ -49,6 +72,7 @@ header nav ul li {
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
+    position: relative;
 }
 
 .more-info::after {
@@ -64,6 +88,32 @@ header nav ul li:hover {
 
 header .buttons {
     margin-left: auto;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    padding: .1rem;
+    display: none;
+    min-width: 12rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.dropdown li {
+   padding: .8rem;
+}
+
+.more-info:hover .dropdown {
+   display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Buttons */
@@ -121,261 +171,6 @@ header .buttons {
     font-size: .9rem;
 }
 
-/* Section Form */
-#section-form {
-    position: relative;
-    display: flex;
-    background-image: url("../images/woman-pool.jpg");
-    background-size: cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    height: auto;
-    min-height: 40rem;
-}
-
-#section-form::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 0;
-}
-
-.reservation-action {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 70%;
-    z-index: 1;
-    padding: 0 2rem;
-    align-items: start;
-}
-
-.reservation-action h1 {
-    color: white;
-    font-size: 4rem;
-    width: 30rem;
-    font-weight: 300;
-}
-
-.reservation-action h2 {
-    color: white;
-    font-size: .9rem;
-    font-weight: semibold;
-    text-transform: uppercase;
-}
-
-.reservation-action h3 {
-    color: white;
-    font-size: 1.2rem;
-    max-width: 26rem;
-    text-align: start;
-    font-weight: 400;
-}
-
-.media-icons {
-    display: flex;
-    align-items: center;
-}
-
-.media-icons img {
-    border: 1px solid #fff;
-    border-radius: 100%;
-    height: 2.5rem;
-    padding: .4rem;
-    margin-inline: .3rem;
-    cursor: pointer;
-}
-
-/* Form */
-.form {
-    display: flex;
-    flex-direction: column;
-    min-width: 25%;
-    padding: 1.5rem 1.5rem;
-    align-self: center; 
-    outline: 1px solid rgba(255, 255, 255, 0.6); 
-    z-index: 1;
-}
-
-.form label {
-    color: white;
-    font-size: .9rem;
-    font-weight: bold;
-}
-
-/* Main */
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 37rem;
-    max-width: fit-content;
-    justify-content: space-evenly;
-    min-height: 19rem;
-    margin: auto;
-}
-
-main h1 {
-    font-size: 3rem;
-    max-width: 32rem;
-    font-weight: 300;
-    text-align: center;
-}
-
-main h2 {
-    color: var(--default-orange);
-    font-size: .7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-main p {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--paragraph);
-    text-align: center;
-}
-
-/* Section Images */
-.images {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 0 1rem;
-}
-
-.image {
-    max-width: 20rem;
-    max-height: 35rem;
-}
-
-.image.down {
-    margin-top: 4rem;
-}
-
-/* Section Rooms */
-#available-rooms {
-    background-color: var(--background-room);
-    padding: 4rem 2rem;
-}
-
-#available-rooms > h2 {
-    color: var(--default-orange);
-    font-size: .8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.title {
-    display: flex;
-    padding: 1rem 0;
-}
-
-.title .button {
-    margin-left: auto;
-}
-
-.title h1 {
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-/* Rooms */
-#rooms {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
-    justify-content: space-between;
-    align-items: start;
-}
-
-.room {
-    width: fit-content;
-    max-width: 50%;
-    margin: 0 0 2rem 0;
-}
-
-.picture {
-    display: inline-block;
-    position: relative;
-}
-
-.picture img {
-    min-width: 32rem;
-    max-height: 20rem;
-    max-width: 32rem;
-    width: 100%;
-}
-
-.picture .category {
-    position: absolute;
-    top: .8rem;
-    left: .8rem;
-    z-index: 2;
-    background-color: var(--background-category);
-    color: white;
-    font-weight: bold;
-    font-size: .8rem;
-    padding: .6rem;
-}
-
-.room-info {
-    display: flex;
-    align-items: center;
-    padding: .5rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3); 
-}
-
-.room-info h1 {
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-.room-info h2 {
-    margin-left: auto;
-    font-size: 2rem;
-    font-weight: 300;
-    display: flex;
-    align-items: center;
-}
-
-.room-info .period {
-    font-size: .9rem;
-    font-weight: 300;
-    margin-left: .3rem;
-}
-
-.room-measures {
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.room-measures span {
-    display: flex;
-    align-items: center;
-    margin-right: .8rem; 
-}
-
-.room-measures span img {
-    max-width: 1rem;
-    max-height: 1rem; 
-    margin-right: .2rem;
-}
-
-.room-measures span h3 {
-    font-size: .9rem;
-    color: rgba(0, 0, 0, 0.6); 
-}
-
-.room-measures .button {
-    margin-left: auto;
-}
 
 /* Responsive Styles */
 @media (max-width: 1024px) {

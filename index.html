@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="scripts/main.js"></script>
     <title>Paradiso Hotel</title>
   </head>
   <body>
@@ -21,9 +21,19 @@
 
       <nav>
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li class="more-info">Room</li>
+          <li><a href="#">Home</a></li>
+          <li><a href="pages/facilities.html">About Us</a></li>
+          <li class="more-info">
+            Room
+            <ul class="dropdown">
+              <li>
+                <a href="pages/available-rooms-client.html">Luxury Rooms</a>
+              </li>
+              <li>
+                <a href="pages/available-rooms-client.html">Reguler Rooms</a>
+              </li>
+            </ul>
+          </li>
           <li class="more-info">Pages</li>
           <li class="more-info">Blog</li>
           <li class="more-info">System</li>
@@ -100,16 +110,6 @@
       <img src="images/hotel-picture2.jpg" class="image down" />
       <img src="images/hotel-picture3.jpg" class="image" />
       <img src="images/hotel-picture4.jpg" class="image down" />
-    </section>
-
-    <section id="available-rooms">
-      <h2>Our Rooms</h2>
-      <div class="title">
-        <h1>Available Rooms</h1>
-        <input type="button" value="View All Rooms" class="button" />
-      </div>
-
-      <div id="rooms"></div>
     </section>
   </body>
 </html>

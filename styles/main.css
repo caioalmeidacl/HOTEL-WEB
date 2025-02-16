@@ -1,0 +1,136 @@
+/* Section Form */
+#section-form {
+    position: relative;
+    display: flex;
+    background-image: url("../images/woman-pool.jpg");
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 40rem;
+}
+
+#section-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.reservation-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 70%;
+    z-index: 1;
+    padding: 0 2rem;
+    align-items: start;
+}
+
+.reservation-action h1 {
+    color: white;
+    font-size: 4rem;
+    width: 30rem;
+    font-weight: 300;
+}
+
+.reservation-action h2 {
+    color: white;
+    font-size: .9rem;
+    font-weight: semibold;
+    text-transform: uppercase;
+}
+
+.reservation-action h3 {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 26rem;
+    text-align: start;
+    font-weight: 400;
+}
+
+.media-icons {
+    display: flex;
+    align-items: center;
+}
+
+.media-icons img {
+    border: 1px solid #fff;
+    border-radius: 100%;
+    height: 2.5rem;
+    padding: .4rem;
+    margin-inline: .3rem;
+    cursor: pointer;
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    min-width: 25%;
+    padding: 1.5rem 1.5rem;
+    align-self: center; 
+    outline: 1px solid rgba(255, 255, 255, 0.6); 
+    z-index: 1;
+}
+
+.form label {
+    color: white;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 37rem;
+    max-width: fit-content;
+    justify-content: space-evenly;
+    min-height: 19rem;
+    margin: auto;
+}
+
+main h1 {
+    font-size: 3rem;
+    max-width: 32rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+main h2 {
+    color: var(--default-orange);
+    font-size: .7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+main p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--paragraph);
+    text-align: center;
+}
+
+/* Section Images */
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0 1rem;
+}
+
+.image {
+    max-width: 20rem;
+    max-height: 35rem;
+}
+
+.image.down {
+    margin-top: 4rem;
+}
