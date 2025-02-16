@@ -8,12 +8,7 @@ import {
   removeUser,
 } from "./localStorage.js";
 
-// updateBD({
-//   name: "caio",
-//   email: "caio@caio.com",
-//   password: "123",
-//   role: "Admin",
-// });
+getUsers();
 
 function handlePopup(e) {
   const popup = document.querySelector(".popup");
@@ -48,8 +43,9 @@ function handleSign(event, typeSign) {
   const name = event.target[0].value;
   const password = event.target[2].value;
 
+  let users = getUsers();
   if (typeSign === "Login") {
-    for (const user of getUsers()) {
+    for (const user of users) {
       if (user.name === name && user.password === password) {
         login(user);
         break;

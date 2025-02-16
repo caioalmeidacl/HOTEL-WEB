@@ -1,3 +1,3 @@
 # Running the server
 
-Just run python server.py
+Just run python -m http.server at project root
