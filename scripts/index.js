@@ -8,8 +8,21 @@ import {
   removeUser,
 } from "./localStorage.js";
 
-getUsers();
+function generateDynamicPath(targetPage, queryParams) {
+  const currentPath = window.location.pathname;
+  const pathParts = currentPath.split("/").filter((part) => part !== "");
 
+  if (pathParts.length > 0 && pathParts[pathParts.length - 1].includes(".")) {
+    pathParts.pop();
+  }
+
+  const backSteps =
+    pathParts.length > 0 ? "../".repeat(pathParts.length) : "./";
+
+  const queryString = new URLSearchParams(queryParams).toString();
+
+  return `${backSteps}${targetPage}${queryString ? `?${queryString}` : ""}`;
+}
 function handlePopup(e) {
   const popup = document.querySelector(".popup");
   const email = document.querySelector("input[type=email]");
@@ -113,6 +126,13 @@ function loadContent(id, file) {
       addHeaderEvents();
       adminInterface();
       isLogged();
+      document.querySelectorAll(".dynamic-link").forEach((link) => {
+        const targetPage = link.dataset.target;
+        const category = link.dataset.category;
+        const path = generateDynamicPath(targetPage, { category: category });
+        console.log("Generated path:", path);
+        link.href = path;
+      });
     })
     .catch((error) => console.error(`Erro ao carregar ${file}:`, error));
 }
