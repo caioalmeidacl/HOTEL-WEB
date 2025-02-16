@@ -16,7 +16,7 @@
       }
     },
     {
-      "category": "Reguler Room",
+      "category": "Regular Room",
       "image": "../images/rooms/room2.jpg",
       "name": "Classic Room",
       "isAvailable": true,
@@ -31,7 +31,7 @@
       }
     },
     {
-      "category": "Reguler Room",
+      "category": "Regular Room",
       "image": "../images/rooms/room3.jpg",
       "name": "Deluxe Suite",
       "isAvailable": true,
@@ -46,7 +46,7 @@
       }
     },
     {
-      "category": "Reguler Room",
+      "category": "Regular Room",
       "image": "../images/rooms/room4.jpg",
       "name": "Business Suite",
       "isAvailable": true,

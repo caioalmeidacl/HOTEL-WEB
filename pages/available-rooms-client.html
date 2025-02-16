@@ -11,7 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="../scripts/main.js"></script>
     <title>Paradiso Hotel</title>
   </head>
   <body>
@@ -27,8 +26,16 @@
           <li class="more-info">
             Room
             <ul class="dropdown">
-              <li><a href="#">Luxury Rooms</a></li>
-              <li><a href="#">Reguler Rooms</a></li>
+              <li>
+                <a href="available-rooms-client.html?category=Luxury Room"
+                  >Luxury Rooms</a
+                >
+              </li>
+              <li>
+                <a href="available-rooms-client.html?category=Regular Room"
+                  >Regular Rooms</a
+                >
+              </li>
             </ul>
           </li>
           <li class="more-info">Pages</li>
@@ -47,10 +54,16 @@
       <h2>Our Rooms</h2>
       <div class="title">
         <h1>Available Rooms</h1>
-        <input type="button" value="View All Rooms" class="button" />
+        <input
+          type="button"
+          value="View All Rooms"
+          id="buttonAll"
+          class="button"
+        />
       </div>
 
       <div id="rooms"></div>
     </section>
+    <script src="../scripts/room.js"></script>
   </body>
 </html>

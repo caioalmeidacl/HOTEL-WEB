@@ -13,13 +13,17 @@ async function getRooms() {
   }
 }
 
-async function displayAvailableRooms() {
+async function displayAvailableRooms(showAll) {
   const data = await getRooms();
   const div = document.querySelector("#rooms");
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedCategory = urlParams.get("category");
+
+  let roomsHTML = [];
 
   for (const room of data.rooms) {
-    if (room.isAvailable) {
-      const template = `
+    if (showAll || (room.isAvailable && room.category == selectedCategory)) {
+      roomsHTML.push(`
         <div class="room">
             <div class="picture">
             <span class="category">${room.category}</span>
@@ -49,10 +53,16 @@ async function displayAvailableRooms() {
             <input type="button" value="Book Now" class="button" />
             </div>
         </div>
-    `;
-      div.innerHTML += template;
+    `);
     }
   }
+  div.innerHTML = roomsHTML.join();
 }
 
-displayAvailableRooms();
+document.querySelector("#buttonAll").addEventListener("click", () => {
+  displayAvailableRooms(true);
+});
+
+document.addEventListener("DOMContentLoaded", () =>
+  displayAvailableRooms(false),
+);
