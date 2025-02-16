@@ -20,7 +20,9 @@ main {
 }
 
 #about h2 {
+    color: var(--default-orange);
     font-size: .8rem;
+    text-transform: uppercase;
 }
 
 #about p {

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script type="module" src="./scripts/index.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -14,6 +15,42 @@
     <title>Paradiso Hotel</title>
   </head>
   <body>
+    <section class="popup">
+      <div class="sign">
+        <div class="exit">Exit</div>
+        <h1>Register</h1>
+        <form>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            placeholder="Your Name"
+            id="name"
+            class="inputs"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            placeholder="Your email"
+            class="inputs"
+            required
+          />
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            placeholder="Your Password"
+            id="password"
+            class="inputs"
+            required
+          />
+
+          <input type="submit" value="Submit" class="button bform" />
+        </form>
+      </div>
+    </section>
+
     <header>
       <div>
         <h1>Paradiso</h1>
@@ -41,14 +78,14 @@
           </li>
           <li class="more-info">Pages</li>
           <li class="more-info">Blog</li>
-          <li class="more-info">System</li>
+          <li class="more-info admin">System</li>
           <li>Contact</li>
         </ul>
       </nav>
 
       <div class="buttons">
-        <input type="button" value="Login" class="button white" />
-        <input type="button" value="Register" class="button" />
+        <input type="button" value="Login" class="button white sign-button" />
+        <input type="button" value="Register" class="button sign-button" />
       </div>
     </header>
 
