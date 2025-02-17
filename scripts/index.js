@@ -8,13 +8,21 @@ import {
   removeUser,
 } from "./localStorage.js";
 
-// updateBD({
-//   name: "caio",
-//   email: "caio@caio.com",
-//   password: "123",
-//   role: "Admin",
-// });
+function generateDynamicPath(targetPage, queryParams) {
+  const currentPath = window.location.pathname;
+  const pathParts = currentPath.split("/").filter((part) => part !== "");
 
+  if (pathParts.length > 0 && pathParts[pathParts.length - 1].includes(".")) {
+    pathParts.pop();
+  }
+
+  const backSteps =
+    pathParts.length > 0 ? "../".repeat(pathParts.length) : "./";
+
+  const queryString = new URLSearchParams(queryParams).toString();
+
+  return `${backSteps}${targetPage}${queryString ? `?${queryString}` : ""}`;
+}
 function handlePopup(e) {
   const popup = document.querySelector(".popup");
   const email = document.querySelector("input[type=email]");
@@ -48,8 +56,9 @@ function handleSign(event, typeSign) {
   const name = event.target[0].value;
   const password = event.target[2].value;
 
+  let users = getUsers();
   if (typeSign === "Login") {
-    for (const user of getUsers()) {
+    for (const user of users) {
       if (user.name === name && user.password === password) {
         login(user);
         break;
@@ -117,6 +126,13 @@ function loadContent(id, file) {
       addHeaderEvents();
       adminInterface();
       isLogged();
+      document.querySelectorAll(".dynamic-link").forEach((link) => {
+        const targetPage = link.dataset.target;
+        const category = link.dataset.category;
+        const path = generateDynamicPath(targetPage, { category: category });
+        console.log("Generated path:", path);
+        link.href = path;
+      });
     })
     .catch((error) => console.error(`Erro ao carregar ${file}:`, error));
 }

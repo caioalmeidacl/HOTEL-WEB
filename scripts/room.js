@@ -1,20 +1,8 @@
-async function getRooms() {
-  try {
-    const response = await fetch("http://localhost:8000/rooms.json");
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Fetch error:", error);
+function displayAvailableRooms(showAll) {
+  const data = JSON.parse(localStorage.getItem("rooms"));
+  if (!data) {
+    return;
   }
-}
-
-async function displayAvailableRooms(showAll) {
-  const data = await getRooms();
   const div = document.querySelector("#rooms");
   const urlParams = new URLSearchParams(window.location.search);
   const selectedCategory = urlParams.get("category");
