@@ -164,6 +164,14 @@ a {
     color:white;
 }
 
+.inputs.inputs-edit {
+    background-color: var(--background-room);
+    outline: 1px solid rgba(0, 0, 0, 0.6); 
+    margin: 1rem 0;
+    max-width: 20rem;
+    color: black;
+}
+
 .inputs::placeholder {
     color: rgba(255, 255, 255, 0.6); 
     font-size: .9rem;

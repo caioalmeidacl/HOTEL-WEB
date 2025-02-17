@@ -29,7 +29,7 @@ main {
     max-width: 60%;
 }
 
-.facilities {
+#facilities {
     display: flex;
     flex-wrap: wrap;
     max-width: 41rem; 
@@ -37,7 +37,7 @@ main {
     justify-content: space-between;
 }
 
-.facilities h3 {
+#facilities h3 {
     color: black;
     font-size: 1.5rem;
     font-weight: 300;
@@ -52,6 +52,7 @@ main {
     max-width: 20rem;
     min-height: 12rem;
     margin: 0 0 1rem 0;
+    position: relative;
 }
 
 .facility p {
@@ -60,4 +61,8 @@ main {
 
 .facility img {
     max-width: 3.5rem;
+}
+
+.facility .edit {
+    display: none;
 }

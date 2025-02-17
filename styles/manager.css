@@ -1,0 +1,18 @@
+.facility .edit {
+    display: block;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.facility h3 { 
+    display: flex;
+}
+
+.facility p {
+    display: flex;
+}
+
+.facility {
+    min-width: 50rem;
+    max-width: 50rem;
+}
