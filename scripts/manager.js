@@ -13,6 +13,42 @@ function handleEdit(button) {
   });
 }
 
+async function fetchImages() {
+  try {
+    const data = await fetch("../images.json");
+    return data.json();
+  } catch (e) {
+    console.log(error);
+  }
+}
+
+async function handleImages(element) {
+  try {
+    const allImages = await fetchImages();
+    const divPhotos = document.querySelector("#photos");
+
+    const divElements = [];
+
+    for (const page in allImages) {
+      if (page.toLowerCase() == element.textContent.toLowerCase()) {
+        for (const image of allImages[page]) {
+          divElements.push(
+            `
+                <div class="images">
+                    <img src="../${image.src}" />
+                </div>
+        `,
+          );
+        }
+      }
+    }
+
+    divPhotos.innerHTML = divElements.join("");
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document
@@ -21,4 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => handleEdit(button)),
       );
   }, 1000);
+  document
+    .querySelectorAll(".page")
+    .forEach((element) =>
+      element.addEventListener("click", () => handleImages(element)),
+    );
 });

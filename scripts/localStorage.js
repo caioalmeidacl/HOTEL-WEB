@@ -36,3 +36,29 @@ export function updateBD(user) {
 
   localStorage.setItem("users", JSON.stringify(users));
 }
+
+export function bookRoom(id) {
+  if (getUser()) {
+    updateRoom(id, false);
+    return true;
+  }
+
+  return false;
+}
+
+export function getRooms() {
+  const rooms = localStorage.getItem("rooms");
+  return rooms ? JSON.parse(rooms) : null;
+}
+
+export function updateRoom(roomId, newStatus) {
+  let data = getRooms();
+
+  data.rooms = data.rooms.map((room) =>
+    room.id == roomId ? { ...room, isAvailable: newStatus } : room,
+  );
+
+  localStorage.setItem("rooms", JSON.stringify(data));
+
+  return data;
+}
