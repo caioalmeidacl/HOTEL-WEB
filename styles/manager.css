@@ -16,3 +16,53 @@
     min-width: 50rem;
     max-width: 50rem;
 }
+
+/* Manager Photos */
+
+#manage-photos {
+    display: flex;
+    min-width: 100%;
+    min-height: 50rem;
+    align-items:center;
+}
+
+.pages {
+    display: flex;
+    width: 50%;
+    max-width: 50%;
+    justify-content: center;
+}
+.pages ul{
+    display: block;
+    height: fit-content;
+}
+.pages ul li {
+    display:flex;
+    justify-content: center;
+    background-color: var(--default-orange);
+    color: white;
+    padding: .8rem;
+    margin: 1rem 0;
+    min-width: 20rem;
+    cursor: pointer;
+}
+.pages li:hover {
+    background-color: var(--list-color); 
+    color: #FFF;
+    outline: none;
+} 
+
+#photos { 
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+    width: 50%;
+}
+.images {
+    max-width: fit-content;
+    margin: 0 1rem 1rem 0;
+}
+.images img {
+    width: 20rem;
+    max-height: 20rem;
+}
