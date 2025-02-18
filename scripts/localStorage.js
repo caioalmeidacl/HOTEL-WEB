@@ -41,9 +41,6 @@ export function bookRoom(id) {
   if (getUser()) {
     updateRoom(id, false);
     return true;
-  }
-
-  return false;
 }
 
 export function getRooms() {
