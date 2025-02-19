@@ -242,6 +242,21 @@ a {
 .isLogged:hover .dropdown {
    display: block;
 }
+.images div {
+    position: relative;
+}
+
+div .edit {
+    display: none;
+    cursor: pointer;
+}
+
+.images div .edit {
+    position: absolute;
+    bottom: .8rem;
+    right: .8rem;
+    max-width: 2rem;
+}
 
 /* Responsive Styles */
 @media (max-width: 1024px) {

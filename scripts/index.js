@@ -115,6 +115,11 @@ function adminInterface() {
     const adminView = document.querySelectorAll(".admin");
 
     adminView.forEach((tag) => (tag.style.display = "none"));
+  } else {
+    const editableTags = document.querySelectorAll(".edit");
+
+    editableTags.forEach((tag) => (tag.style.display = "block"));
+    loadEvent();
   }
 }
 
@@ -135,6 +140,64 @@ function loadContent(id, file) {
       });
     })
     .catch((error) => console.error(`Erro ao carregar ${file}:`, error));
+}
+
+export function handleEdit(button) {
+  const parentElement = button.parentElement;
+  const editableElement = parentElement.querySelector(".editableTag");
+
+    console.log(button, parentElement, editableElement)
+  if (!editableElement) return;
+
+  let input;
+
+  if (editableElement.tagName === "IMG") {
+    input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.className = "inputs inputs-edit";
+  } else if (
+    editableElement.tagName === "H3" ||
+    editableElement.tagName === "P"
+  ) {
+    input = document.createElement("input");
+    input.type = "text";
+    input.value = editableElement.textContent.trim();
+    input.className = "inputs inputs-edit";
+  } else {
+    return;
+  }
+
+  input.style.width = `${editableElement.offsetWidth}px`;
+  input.style.height = `${editableElement.offsetHeight}px`;
+
+  editableElement.replaceWith(input);
+
+  input.focus();
+
+  // Adiciona um event listener para salvar as alterações quando o input perder o foco
+  input.addEventListener("blur", () => {
+    if (editableElement.tagName === "IMG") {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          editableElement.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    } else {
+      editableElement.textContent = input.value;
+    }
+
+    input.replaceWith(editableElement);
+  });
+}
+
+function loadEvent() {
+  document.querySelectorAll(".edit").forEach((button) => {
+    button.addEventListener("click", () => handleEdit(button));
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

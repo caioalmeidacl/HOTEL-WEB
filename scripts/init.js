@@ -412,6 +412,7 @@ const initial_facilities = {
     edit: "../images/edit-button.svg",
   },
 };
+
 function init_db() {
   if (localStorage.length == 0) {
     localStorage.setItem("rooms", JSON.stringify(initial_rooms));

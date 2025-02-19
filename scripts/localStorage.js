@@ -92,3 +92,7 @@ export function getAllImages() {
 
   return images;
 }
+
+export function editPhoto(file) {}
+
+export function editFacility() {}
