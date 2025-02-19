@@ -45,11 +45,22 @@
     position: relative;
 }
 
-.picture img {
+.picture img:first-child {
     min-width: 32rem;
     max-height: 20rem;
     max-width: 32rem;
     width: 100%;
+}
+
+.images {
+    position: relative; 
+}
+
+.images .edit {
+    position: absolute;
+    bottom: .8rem;
+    right: .8rem;
+    max-width: 2rem;
 }
 
 .picture .category {

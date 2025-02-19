@@ -1,5 +1,7 @@
 import { getRooms, bookRoom } from "./localStorage.js";
 
+const iconEdit = "../images/edit-button-orange.svg";
+
 function handleBook(element) {
   const id = element.parentElement.nextSibling.parentElement.id;
 
@@ -33,7 +35,10 @@ function displayAvailableRooms(showAll) {
             <div id="${room.id}" class="room">
                 <div class="picture">
                 <span class="category">${room.category}</span>
-                <img src="${room.image}" class="image" />
+                <div class="images">
+                    <img src="${room.image}" class="image editableTag" />
+                    <img src="${iconEdit}" class="image edit" />
+                </div>
                 </div>
                 <div class="room-info">
                 <h1>${room.name}</h1>

@@ -146,7 +146,6 @@ export function handleEdit(button) {
   const parentElement = button.parentElement;
   const editableElement = parentElement.querySelector(".editableTag");
 
-    console.log(button, parentElement, editableElement)
   if (!editableElement) return;
 
   let input;
