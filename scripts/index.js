@@ -4,8 +4,10 @@ import {
   getUser,
   setUser,
   setRole,
+  getHomeImages,
   updateBD,
   removeUser,
+  editPhoto,
 } from "./localStorage.js";
 
 function generateDynamicPath(targetPage, queryParams) {
@@ -146,51 +148,47 @@ export function handleEdit(button) {
   const parentElement = button.parentElement;
   const editableElement = parentElement.querySelector(".editableTag");
 
-  if (!editableElement) return;
+  if (!editableElement || editableElement.tagName !== "IMG") return;
 
-  let input;
-
-  if (editableElement.tagName === "IMG") {
-    input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    input.className = "inputs inputs-edit";
-  } else if (
-    editableElement.tagName === "H3" ||
-    editableElement.tagName === "P"
-  ) {
-    input = document.createElement("input");
-    input.type = "text";
-    input.value = editableElement.textContent.trim();
-    input.className = "inputs inputs-edit";
-  } else {
-    return;
-  }
-
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = "image/*";
+  input.className = "inputs inputs-edit";
   input.style.width = `${editableElement.offsetWidth}px`;
   input.style.height = `${editableElement.offsetHeight}px`;
 
   editableElement.replaceWith(input);
-
   input.focus();
 
-  // Adiciona um event listener para salvar as alterações quando o input perder o foco
-  input.addEventListener("blur", () => {
-    if (editableElement.tagName === "IMG") {
-      const file = input.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          editableElement.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    } else {
-      editableElement.textContent = input.value;
-    }
+  const handleFileChange = () => {
+    const file = input.files[0];
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const newImage = document.createElement("img");
+        newImage.className = editableElement.className;
+        newImage.src = e.target.result; // Base64
+        newImage.setAttribute("editableTag", ""); // Re-add the attribute
 
-    input.replaceWith(editableElement);
-  });
+        editPhoto(
+          editableElement.src.slice(editableElement.src.indexOf("images")),
+          newImage.src,
+        );
+
+        input.replaceWith(newImage);
+      };
+      reader.onerror = () => {
+        console.error("Failed to read the file.");
+        input.replaceWith(editableElement);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      input.replaceWith(editableElement);
+    }
+    input.removeEventListener("change", handleFileChange);
+  };
+
+  input.addEventListener("change", handleFileChange);
 }
 
 function loadEvent() {
@@ -199,6 +197,24 @@ function loadEvent() {
   });
 }
 
+function loadHomeImages() {
+  const data = getHomeImages();
+  const div = document.querySelector(".images");
+
+  let homeHTML = [];
+
+  for (const image of data) {
+    homeHTML.push(`
+      <div>
+        <img src="${image.src}" class="image editableTag" />
+        <img src="/images/edit-button-orange.svg" class="edit" />
+      </div>
+      `);
+  }
+  div.innerHTML = homeHTML.join("");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadContent("header", "../header.html");
+  loadHomeImages();
 });

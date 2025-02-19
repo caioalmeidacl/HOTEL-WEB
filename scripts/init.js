@@ -413,11 +413,52 @@ const initial_facilities = {
   },
 };
 
+const initial_images = {
+  home: [
+    {
+      id: 1,
+      src: "images/hotel-picture1.jpg",
+    },
+    {
+      id: 2,
+      src: "images/hotel-picture2.jpg",
+    },
+    {
+      id: 3,
+      src: "images/hotel-picture3.jpg",
+    },
+    {
+      id: 4,
+      src: "images/hotel-picture4.jpg",
+    },
+  ],
+  room: [],
+};
+
+function populateInitialImages(rooms) {
+  const imagesByCategory = {
+    "Luxury Room": [],
+    "Regular Room": [],
+  };
+
+  rooms.forEach((room) => {
+    if (imagesByCategory[room.category]) {
+      imagesByCategory[room.category].push({
+        id: room.id,
+        image: room.image,
+      });
+    }
+  });
+
+  initial_images.room = imagesByCategory;
+}
+
 function init_db() {
   if (localStorage.length == 0) {
     localStorage.setItem("rooms", JSON.stringify(initial_rooms));
     localStorage.setItem("users", JSON.stringify(initial_users));
     localStorage.setItem("facilities", JSON.stringify(initial_facilities));
+    localStorage.setItem("images", JSON.stringify(initial_images));
   } else {
     return;
   }

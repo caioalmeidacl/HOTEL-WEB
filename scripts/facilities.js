@@ -11,13 +11,11 @@ function displayVisiblesFacilities(showAll) {
       facilitiesHTML.push(`
         <div class="facility">
           <img src="${facility.icon}" />
-          <h3 class="editTag">
+          <h3>
         ${facility.title}
-                    <img src="${data.icons.edit}" class="edit" />
     </h3>
-              <p class="editTag">
+              <p>
                 ${facility.description}
-                <img src="${data.icons.edit}" class="edit" />
           </p>
         </div>
     `);

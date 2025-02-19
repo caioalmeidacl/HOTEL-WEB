@@ -76,23 +76,21 @@ export function getAllFacilities() {
   return facilities ? JSON.parse(facilities) : null;
 }
 
-export function getAllImages() {
-  const rooms = getRooms();
-  const facilities = getAllFacilities();
+export function getHomeImages() {
+  const images = localStorage.getItem("images");
+  const parsedJSON = JSON.parse(images);
 
-  const images = {
-    home: [],
-    room: [],
-    facility: [],
-  };
-
-  for (const data of rooms["rooms"]) {
-    images.room.push(data.image);
-  }
-
-  return images;
+  return images ? parsedJSON.home : null;
 }
 
-export function editPhoto(file) {}
+export function editPhoto(old, newSrc) {
+  const images = JSON.parse(localStorage.getItem("images")) || initial_images;
 
-export function editFacility() {}
+  const updatedHome = images.home.map((image) =>
+    image.src === old ? { ...image, src: newSrc } : image,
+  );
+
+  const updatedImages = { ...images, home: updatedHome };
+
+  localStorage.setItem("images", JSON.stringify(updatedImages));
+}
