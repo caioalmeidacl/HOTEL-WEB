@@ -1,20 +1,57 @@
 import { getAllImages, makeAvailable } from "./localStorage.js";
 
+const iconEdit = "../images/edit-button-white.svg";
+
 function handleEdit(button) {
   const parentElement = button.parentElement;
-  const editableElements = parentElement.querySelectorAll(".editTag");
+  const editableElement = parentElement.querySelector(".editableTag");
 
-  editableElements.forEach((element) => {
-    const input = document.createElement("input");
-    input.type = "text";
-    input.value = element.textContent.trim();
+  if (!editableElement) return;
+
+  let input;
+
+  if (editableElement.tagName === "IMG") {
+    input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
     input.className = "inputs inputs-edit";
+  } else if (
+    editableElement.tagName === "H3" ||
+    editableElement.tagName === "P"
+  ) {
+    input = document.createElement("input");
+    input.type = "text";
+    input.value = editableElement.textContent.trim();
+    input.className = "inputs inputs-edit";
+  } else {
+    return;
+  }
 
-    input.style.width = `${element.offsetWidth}px`;
-    input.style.height = `${element.offsetHeight}px`;
+  input.style.width = `${editableElement.offsetWidth}px`;
+  input.style.height = `${editableElement.offsetHeight}px`;
+
+  editableElement.replaceWith(input);
+
+  input.focus();
+
+  // Adiciona um event listener para salvar as alterações quando o input perder o foco
+  input.addEventListener("blur", () => {
+    if (editableElement.tagName === "IMG") {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          editableElement.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    } else {
+      editableElement.textContent = input.value;
+    }
+
+    input.replaceWith(editableElement);
   });
 }
-
 function handleImages(element) {
   const allImages = getAllImages();
   const divPhotos = document.querySelector("#photos");
@@ -28,13 +65,22 @@ function handleImages(element) {
     divElements.push(
       `
                 <div class="images">
-                    <img src="${image}" class="edit"/>
+                    <img src="${image}" class="editableTag" />
+                    <img src="${iconEdit}" class="edit"/>
                 </div>
         `,
     );
   }
 
   divPhotos.innerHTML = divElements.join("");
+
+  loadEvent();
+}
+
+function loadEvent() {
+  document.querySelectorAll(".edit").forEach((button) => {
+    button.addEventListener("click", () => handleEdit(button));
+  });
 }
 
 function openRoom(element) {
@@ -44,13 +90,6 @@ function openRoom(element) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    document
-      .querySelectorAll(".edit")
-      .forEach((button) =>
-        button.addEventListener("click", () => handleEdit(button)),
-      );
-  }, 1000);
   document
     .querySelectorAll(".page")
     .forEach((element) =>
