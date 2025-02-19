@@ -1,20 +1,7 @@
-async function getFacilities() {
-  try {
-    const response = await fetch("http://localhost:8000/facilities.json");
+import { getAllFacilities } from "./localStorage.js";
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Fetch error:", error);
-  }
-}
-
-async function displayVisiblesFacilities(showAll) {
-  const data = await getFacilities();
+function displayVisiblesFacilities(showAll) {
+  const data = getAllFacilities();
   const div = document.querySelector("#facilities");
 
   let facilitiesHTML = [];
@@ -36,7 +23,7 @@ async function displayVisiblesFacilities(showAll) {
     `);
     }
   }
-  div.innerHTML = facilitiesHTML.join();
+  div.innerHTML = facilitiesHTML.join("");
 }
 
 document.addEventListener("DOMContentLoaded", () => {

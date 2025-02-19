@@ -60,3 +60,35 @@ export function updateRoom(roomId, newStatus) {
 
   return data;
 }
+
+export function makeAvailable(id) {
+  if (getUser()) {
+    updateRoom(id, true);
+    return true;
+  }
+
+  return false;
+}
+
+export function getAllFacilities() {
+  const facilities = localStorage.getItem("facilities");
+
+  return facilities ? JSON.parse(facilities) : null;
+}
+
+export function getAllImages() {
+  const rooms = getRooms();
+  const facilities = getAllFacilities();
+
+  const images = {
+    home: [],
+    room: [],
+    facility: [],
+  };
+
+  for (const data of rooms["rooms"]) {
+    images.room.push(data.image);
+  }
+
+  return images;
+}

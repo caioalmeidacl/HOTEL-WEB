@@ -62,6 +62,15 @@
     font-weight: bold;
     font-size: .8rem;
     padding: .6rem;
+    max-width: fit-content;
+}
+
+.category.closed {
+    position: absolute;
+    background-color: var(--default-orange);
+    top: 0.8rem;
+    right: 0.8rem;
+    left: auto;
 }
 
 .room-info {

@@ -1,4 +1,4 @@
-import { getRooms, bookRoom, getReservations } from "./localStorage.js";
+import { getRooms, bookRoom } from "./localStorage.js";
 
 function handleBook(element) {
   const id = element.parentElement.nextSibling.parentElement.id;
@@ -15,13 +15,20 @@ function displayAvailableRooms(showAll) {
   const div = document.querySelector("#rooms");
   const urlParams = new URLSearchParams(window.location.search);
   const selectedCategory = urlParams.get("category");
+  const guests = urlParams.get("guests") ? Number(urlParams.get("guests")) : 0;
 
   let roomsHTML = [];
 
   if (urlParams.size > 0) {
     for (const room of data.rooms) {
-      if (showAll || room.category == selectedCategory) {
-        if (room.isAvailable) {
+      if (room.isAvailable) {
+        const categoryMatch =
+          showAll ||
+          selectedCategory === "All" ||
+          room.category === selectedCategory;
+        const guestMatch = guests === 0 || guests <= room.details.capacity;
+
+        if (categoryMatch && guestMatch) {
           roomsHTML.push(`
             <div id="${room.id}" class="room">
                 <div class="picture">
@@ -63,6 +70,7 @@ function displayAvailableRooms(showAll) {
             <div id="${room.id}" class="room">
                 <div class="picture">
                 <span class="category">${room.category}</span>
+                <span class="category closed">Closed</span>
                 <img src="${room.image}" class="image" />
                 </div>
                 <div class="room-info">
@@ -86,7 +94,7 @@ function displayAvailableRooms(showAll) {
                 <img src="${data.icons.bathrooms}" />
                 <h3>${room.details.bathrooms}</h3>
                 </span>
-                <input type="button" value="Close" class="button close" />
+                <input type="button" value="Reopen" class="button close" />
                 </div>
             </div>
         `);

@@ -26,7 +26,9 @@
           serene and luxurious getaway for travelers.
         </h3>
 
-        <input type="button" value="Make A Reservation" class="button" />
+        <a href="pages/available-rooms-client.html?category=All"
+          ><input type="button" value="Make A Reservation" class="button"
+        /></a>
 
         <div class="media-icons">
           <h2>Follow us</h2>
@@ -37,19 +39,11 @@
       </div>
 
       <form class="form">
-        <label for="">Full Name</label>
-        <input type="text" placeholder="Your Name" class="inputs" required />
-
         <label for="">Check In</label>
-        <input type="text" placeholder="Your Arrival" class="inputs" required />
+        <input type="text" placeholder="Your Arrival" class="inputs" />
 
         <label for="">Check Out</label>
-        <input
-          type="text"
-          placeholder="Your Departure"
-          class="inputs"
-          required
-        />
+        <input type="text" placeholder="Your Departure" class="inputs" />
 
         <label for="">Guests</label>
         <input
@@ -72,7 +66,9 @@
         and service
       </p>
 
-      <input type="button" value="Read More" class="button" />
+      <a href="/pages/facilities.html">
+        <input type="button" value="Read More" class="button"
+      /></a>
     </main>
 
     <section class="images">
@@ -81,6 +77,7 @@
       <img src="images/hotel-picture3.jpg" class="image" />
       <img src="images/hotel-picture4.jpg" class="image down" />
     </section>
+    <script type="module" src="./scripts/form.js"></script>
     <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

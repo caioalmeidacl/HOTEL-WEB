@@ -379,10 +379,44 @@ const initial_users = [
   },
 ];
 
+const initial_facilities = {
+  facilities: [
+    {
+      icon: "../images/pool-icon.svg",
+      title: "Infinity Pool",
+      description:
+        "Stunning pool with views, perfect for relaxation and sunbathing.",
+      isVisible: true,
+    },
+    {
+      icon: "../images/spa-icon.svg",
+      title: "Spa Center",
+      description:
+        "Offering massages, facials, and holistic wellness treatments.",
+      isVisible: true,
+    },
+    {
+      icon: "../images/buffet-icon.svg",
+      title: "Fine Dining",
+      description: "Exquisite restaurant with a menu by top chefs.",
+      isVisible: true,
+    },
+    {
+      icon: "../images/beach-icon.svg",
+      title: "Private Beach",
+      description: "Exclusive beach area with sun loungers and service.",
+      isVisible: true,
+    },
+  ],
+  icons: {
+    edit: "../images/edit-button.svg",
+  },
+};
 function init_db() {
   if (localStorage.length == 0) {
     localStorage.setItem("rooms", JSON.stringify(initial_rooms));
     localStorage.setItem("users", JSON.stringify(initial_users));
+    localStorage.setItem("facilities", JSON.stringify(initial_facilities));
   } else {
     return;
   }

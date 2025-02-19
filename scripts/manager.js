@@ -1,3 +1,5 @@
+import { getAllImages, makeAvailable } from "./localStorage.js";
+
 function handleEdit(button) {
   const parentElement = button.parentElement;
   const editableElements = parentElement.querySelectorAll(".editTag");
@@ -13,40 +15,32 @@ function handleEdit(button) {
   });
 }
 
-async function fetchImages() {
-  try {
-    const data = await fetch("../images.json");
-    return data.json();
-  } catch (e) {
-    console.log(error);
-  }
-}
+function handleImages(element) {
+  const allImages = getAllImages();
+  const divPhotos = document.querySelector("#photos");
 
-async function handleImages(element) {
-  try {
-    const allImages = await fetchImages();
-    const divPhotos = document.querySelector("#photos");
+  const divElements = [];
 
-    const divElements = [];
-
-    for (const page in allImages) {
-      if (page.toLowerCase() == element.textContent.toLowerCase()) {
-        for (const image of allImages[page]) {
-          divElements.push(
-            `
+  for (const image of allImages[element.textContent.toLowerCase()].slice(
+    0,
+    4,
+  )) {
+    divElements.push(
+      `
                 <div class="images">
-                    <img src="../${image.src}" />
+                    <img src="${image}" class="edit"/>
                 </div>
         `,
-          );
-        }
-      }
-    }
-
-    divPhotos.innerHTML = divElements.join("");
-  } catch (e) {
-    console.log(e);
+    );
   }
+
+  divPhotos.innerHTML = divElements.join("");
+}
+
+function openRoom(element) {
+  const id = element.parentElement.nextSibling.parentElement.id;
+
+  if (makeAvailable(id)) window.location.reload();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -61,5 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelectorAll(".page")
     .forEach((element) =>
       element.addEventListener("click", () => handleImages(element)),
+    );
+
+  document
+    .querySelectorAll(".close")
+    .forEach((element) =>
+      element.addEventListener("click", () => openRoom(element)),
     );
 });
