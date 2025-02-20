@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/index.css" />
-    <link rel="stylesheet" href="../styles/manager.css" />
-    <link rel="stylesheet" href="../styles/available-rooms-client.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script type="module" src="../scripts/localStorage.js"></script>
@@ -17,17 +15,21 @@
   </head>
   <body>
     <div id="header"></div>
-    <section id="available-rooms">
-      <h2>Rooms</h2>
-      <div class="title">
-        <h1>Reserved Rooms</h1>
-      </div>
 
-      <div id="rooms"></div>
-    </section>
+    <div class="location">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.3374799472683!2d-42.0362586!3d-22.8907642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9704b6048eeb73%3A0x2f2e9e4972d22643!2sParadiso%20Corporate%20Hotel%20em%20Cabo%20Frio!5e0!3m2!1spt-BR!2sbr!4v1708438200000"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+    </div>
 
     <script type="module" src="../scripts/index.js"></script>
-    <script type="module" src="../scripts/room.js"></script>
     <script type="module" src="../scripts/manager.js"></script>
   </body>
 </html>

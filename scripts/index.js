@@ -10,21 +10,27 @@ import {
   editPhoto,
 } from "./localStorage.js";
 
-function generateDynamicPath(targetPage, queryParams) {
-  const currentPath = window.location.pathname;
-  const pathParts = currentPath.split("/").filter((part) => part !== "");
+function generateDynamicPath(targetPage, params = {}) {
+  targetPage = targetPage.replace(/^\/+|\/+$/g, "");
 
-  if (pathParts.length > 0 && pathParts[pathParts.length - 1].includes(".")) {
-    pathParts.pop();
+  let baseUrl = window.location.origin; // e.g., "http://localhost:8000"
+
+  let path = `${baseUrl}/${targetPage}`;
+
+  const filteredParams = Object.fromEntries(
+    Object.entries(params).filter(
+      ([key, value]) => value !== undefined && value !== "",
+    ),
+  );
+
+  const queryParams = new URLSearchParams(filteredParams).toString();
+  if (queryParams) {
+    path += `?${queryParams}`;
   }
 
-  const backSteps =
-    pathParts.length > 0 ? "../".repeat(pathParts.length) : "./";
-
-  const queryString = new URLSearchParams(queryParams).toString();
-
-  return `${backSteps}${targetPage}${queryString ? `?${queryString}` : ""}`;
+  return path;
 }
+
 function handlePopup(e) {
   const popup = document.querySelector(".popup");
   const email = document.querySelector("input[type=email]");
@@ -124,7 +130,6 @@ function adminInterface() {
     loadEvent();
   }
 }
-
 function loadContent(id, file) {
   fetch(file)
     .then((response) => response.text())

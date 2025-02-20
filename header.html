@@ -1,12 +1,12 @@
 <section class="popup">
   <div class="sign">
-    <div class="exit">Exit</div>
-    <h1>Register</h1>
+    <div class="exit">Sair</div>
+    <h1>Cadastro</h1>
     <form>
-      <label for="name">Name</label>
+      <label for="name">Nome</label>
       <input
         type="text"
-        placeholder="Your Name"
+        placeholder="Seu Nome"
         id="name"
         class="inputs"
         required
@@ -15,22 +15,22 @@
       <label for="email">Email</label>
       <input
         type="email"
-        placeholder="Your email"
+        placeholder="Seu email"
         name="email"
         class="inputs"
         required
       />
 
-      <label for="password">Password</label>
+      <label for="password">Senha</label>
       <input
         type="password"
-        placeholder="Your Password"
+        placeholder="Sua Senha"
         id="password"
         class="inputs"
         required
       />
 
-      <input type="submit" value="Submit" class="button bform" />
+      <input type="submit" value="Enviar" class="button bform" />
     </form>
   </div>
 </section>
@@ -43,15 +43,15 @@
   <nav>
     <ul>
       <li>
-        <a href="#" class="dynamic-link" data-target="index.html">Home</a>
+        <a href="#" class="dynamic-link" data-target="index.html">Início</a>
       </li>
       <li>
-        <a href="#" class="dynamic-link" data-target="/pages/facilities.html"
-          >About Us</a
+        <a href="#" class="dynamic-link" data-target="pages/facilities.html"
+          >Sobre Nós</a
         >
       </li>
       <li class="more-info">
-        Room
+        Quartos
         <ul class="dropdown">
           <li>
             <a
@@ -59,7 +59,7 @@
               class="dynamic-link"
               data-target="pages/available-rooms-client.html"
               data-category="Luxury Room"
-              >Luxury Rooms</a
+              >Quartos de Luxo</a
             >
           </li>
           <li>
@@ -68,19 +68,32 @@
               class="dynamic-link"
               data-target="pages/available-rooms-client.html"
               data-category="Regular Room"
-              >Regular Rooms</a
+              >Quartos Comuns</a
             >
           </li>
         </ul>
       </li>
-      <!-- <li class="more-info">Pages</li> -->
-      <!-- <li class="more-info">Blog</li> -->
-      <li>Contact</li>
-      <li class="more-info admin">
-        System
+      <li class="more-info">
+        Contato
         <ul class="dropdown">
           <li>
-            <a href="/pages/manage-reservations.html">Check All Reservations</a>
+            <a href="#" class="dynamic-link" data-target="pages/location.html"
+              >Localização</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li class="more-info admin">
+        Sistema
+        <ul class="dropdown">
+          <li>
+            <a
+              href="#"
+              class="dynamic-link"
+              data-target="pages/manage-reservations.html"
+              >Ver Todas as Reservas</a
+            >
           </li>
         </ul>
       </li>
@@ -90,12 +103,12 @@
   <div class="buttons">
     <div class="isNotLogged">
       <input type="button" value="Login" class="button white sign-button" />
-      <input type="button" value="Register" class="button sign-button" />
+      <input type="button" value="Cadastrar" class="button sign-button" />
     </div>
     <div class="isLogged">
       <input type="button" class="button" />
       <ul class="dropdown">
-        <li class="logout">Log Out</li>
+        <li class="logout">Sair</li>
       </ul>
     </div>
   </div>

@@ -66,3 +66,77 @@ main {
 .facility .edit {
     display: none;
 }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    main {
+        padding: 2rem 1.5rem;
+        margin-top: 8rem;
+    }
+    
+    #about p {
+        max-width: 75%;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 6rem;
+    }
+    
+    #about {
+        margin-right: 0;
+        text-align: center;
+        align-items: center;
+    }
+    
+    #about p {
+        max-width: 90%;
+    }
+    
+    #facilities {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .facility {
+        max-width: 100%;
+        min-height: 10rem;
+        margin: 0 0 1.5rem 0;
+    }
+    
+    .facility p {
+        padding-right: 1rem;
+    }
+    
+    #facilities h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1.5rem 1rem;
+        margin-top: 5rem;
+    }
+    
+    #about h1 {
+        font-size: 1.8rem;
+    }
+    
+    .facility {
+        padding: 1rem;
+        min-height: auto;
+    }
+    
+    .facility img {
+        max-width: 3rem;
+    }
+    
+    .facility .edit {
+        display: none !important;
+    }
+}

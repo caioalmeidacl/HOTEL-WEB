@@ -35,7 +35,7 @@ function displayAvailableRooms(showAll) {
             <div id="${room.id}" class="room">
                 <div class="picture">
                 <span class="category">${room.category}</span>
-                <div class="images">
+                <div class="images-room">
                     <img src="${room.image}" class="image editableTag" />
                     <img src="${iconEdit}" class="image edit" />
                 </div>

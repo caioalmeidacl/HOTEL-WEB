@@ -12,6 +12,15 @@
     box-sizing: border-box;
 }
 
+.location {
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
 body {
     padding: .2rem .5rem;
     font-family: Roboto, sans-serif;
@@ -201,8 +210,8 @@ a {
     max-width: 50%;
     margin: auto;
     background-color: white;
-    min-width: 50rem;
-    min-height: 30rem;
+    min-width: 80%;
+    min-height: 60%;
     padding: 4rem;
 }
 
@@ -264,6 +273,10 @@ div .edit {
         margin-inline: 0.5rem;
         font-size: 0.9rem;
     }
+    .sign {
+        max-width: 70%;
+        padding: 3rem;
+    }
 
     .reservation-action h1 {
         font-size: 3rem;
@@ -284,6 +297,27 @@ div .edit {
     .media-icons img {
         height: 2rem;
         padding: 0.3rem;
+    }
+    .popup {
+        padding: 20px;
+      }
+    .sign {
+        max-width: 80%;
+        font-size: 2rem;
+        padding: 2rem;
+    }
+
+    .sign form .inputs {
+        padding: 0.8rem;
+        margin: 0.4rem 0 1rem 0;
+    }
+
+    .sign form .inputs::placeholder {
+        font-size: 0.85rem;
+    }
+
+    .media-icons {
+      margin-top: 1rem;
     }
     header {
         flex-wrap: wrap;
@@ -306,10 +340,19 @@ div .edit {
         width: 100%;
         padding: 2rem;
     }
+  .reservation-action .media-icons {
+    align-self: flex-end;
+  }
 
     .reservation-action h1 {
+    text-wrap: wrap;
         font-size: 2.5rem;
         width: 100%;
+    }
+
+    .reservation-action h3 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .form {
@@ -346,8 +389,34 @@ div .edit {
         padding: 0.2rem;
         margin-inline: 0.2rem;
     }
+    .sign {
+        max-width: 90%;
+        min-width: 90%;
+        padding: 1.5rem;
+    }
+  .sign h1{
+      font-size: 3rem;
+  }
+
+    .sign form .inputs {
+        padding: 0.7rem;
+        margin: 0.3rem 0 0.8rem 0;
+    }
+
+    .sign form .inputs::placeholder {
+        font-size: 0.8rem;
+    }
+    .popup {
+      padding: 10px;
+    }
+
+    .popup-content {
+      width: 90%;
+      max-width: 100%;
+    }
     .media-icons {
-        justify-content: center;
+        justify-content: end !important;
+        margin-top: 1rem;
         width: 100%;
     }
     header div h1 {
@@ -361,7 +430,7 @@ div .edit {
 
     .buttons {
         margin-left: 0 !important;
-        display: none;
+        /* display: none; */
     }
 
     .button {
@@ -371,19 +440,23 @@ div .edit {
     }
 
     #section-form {
-        min-height: auto;
-    }
+  }
 
     .reservation-action {
         padding: 1rem !important;
+    max-width: 100% !important;
     }
 
     .reservation-action h1 {
         font-size: 1.5rem !important;
+        margin-top: 1rem;
+        max-width: 100%;
     }
 
     .reservation-action h3 {
         font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .form {
