@@ -216,10 +216,12 @@ function loadHomeImages() {
       </div>
       `);
   }
-  div.innerHTML = homeHTML.join("");
+  div?.innerHTML = homeHTML.join("");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   loadContent("header", "../header.html");
-  loadHomeImages();
+  if (window.location.href == "../index.html") {
+    loadHomeImages();
+  }
 });
